@@ -1,8 +1,9 @@
+// Universeller Scriptloader für Elali Chatbot – sofort einsetzbar
 (function () {
   // Verhindere Duplikate
   if (document.getElementById('chatbot-launcher')) return;
 
-  // 🔘 Chat Bubble (Button)
+  // 💬 Chat Bubble (Button)
   const bubble = document.createElement('div');
   bubble.id = 'chatbot-launcher';
   bubble.innerHTML = '💬';
@@ -12,15 +13,16 @@
   bubble.style.width = '60px';
   bubble.style.height = '60px';
   bubble.style.borderRadius = '50%';
-  bubble.style.backgroundColor = '#0098dd';
-  bubble.style.color = '#fff';
+  bubble.style.backgroundColor = '#18181C'; // Elali-Design
+  bubble.style.color = '#e6c373';           // Elali-Design
   bubble.style.fontSize = '26px';
   bubble.style.display = 'flex';
   bubble.style.justifyContent = 'center';
   bubble.style.alignItems = 'center';
   bubble.style.cursor = 'pointer';
   bubble.style.zIndex = '99999';
-  bubble.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
+  bubble.style.boxShadow = '0 4px 12px rgba(230,195,115,0.18)';
+  bubble.style.border = '2px solid #e6c373';
   document.body.appendChild(bubble);
 
   // 🧠 Chat iframe container
@@ -53,16 +55,16 @@
   closeBtn.style.zIndex = '10';
   container.appendChild(closeBtn);
 
-  // 🪟 Iframe
+  // 🪟 Iframe (ELALI-DEPLOYMENT!)
   const iframe = document.createElement('iframe');
-  iframe.src = 'https://chatbot-ui-dam.vercel.app/embed/index.html'; // ✅ Replace with your deployment URL
+  iframe.src = 'https://elali-git-main-luccas-projects-96a45b76.vercel.app/embed/index.html'; // <<-- Deine Deployment-URL!
   iframe.style.width = '100%';
   iframe.style.height = '100%';
   iframe.style.border = 'none';
   iframe.style.borderRadius = '12px';
   container.appendChild(iframe);
 
-  // 🧩 Toggle Verhalten
+  // Toggle-Verhalten
   bubble.addEventListener('click', () => {
     container.style.display = 'block';
     bubble.style.display = 'none';
