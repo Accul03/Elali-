@@ -36,15 +36,15 @@ document.addEventListener('DOMContentLoaded', function () {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: msg })
     })
-    .then(res => {
+    .then(function(res) {
       if (!res.ok) throw new Error('Serverfehler');
       return res.json();
     })
-    .then(data => {
+    .then(function(data) {
       // Passe "data.reply" ggf. an das tatsächliche Feld deines Webhook-Outputs an!
       appendMessage(data.reply || 'Keine Antwort vom Server.', 'bot');
     })
-    .catch(() => {
+    .catch(function() {
       appendMessage('Fehler bei der Verbindung zum Server.', 'bot');
     });
     // --- ENDE WEBHOOK ---
