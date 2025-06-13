@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot UI</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .chat-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="chat-container">
+    <!-- 🧢 Header -->
+    <div class="chat-header">
+      <span>Chatten Sie mit uns, wir sind online!</span>
+    </div>
+
+    <!-- 📦 Body -->
+    <div class="chat-body">
+      <!-- 👤 Agent -->
+      <div class="chat-agent">
+        <img src="https://www.erecht24.de/images/avatar-chatbot.png" alt="Anastasia" />
+        <div class="agent-info">
+          <strong>Anastasia</strong><br />
+          <small><span class="status-dot"></span> Online</small>
+        </div>
+      </div>
+
+      <!-- 👋 Begrüßung -->
+      <div class="chat-welcome">
+        Willkommen im Chat! 👋<br />
+        Schön, dass Sie da sind!<br />
+        Wie können wir Ihnen weiterhelfen? 🚀💬
+      </div>
+
+      <!-- 💬 Nachrichten -->
+      <div class="chat-messages" id="chatMessages"></div>
+
+      <!-- ✏️ Eingabe -->
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Nachricht..." autocomplete="off" />
+        <button id="sendMessage">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📜 Script nur für das UI -->
+  <script src="../script.js"></script>
+</body>
+</html>
