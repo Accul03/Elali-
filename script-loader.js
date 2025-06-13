@@ -1,89 +1,68 @@
-// Universeller Script-Loader für Chatbot-Widget (Ready-to-Use)
 (function () {
-  // Präfix für alle IDs & Verhindern von Duplikaten
-  const PREFIX = 'elali-chatbot-';
-  if (document.getElementById(PREFIX + 'launcher')) return;
+  // Verhindere Duplikate
+  if (document.getElementById('chatbot-launcher')) return;
 
-  // Chat Bubble (Button)
+  // 🔘 Chat Bubble (Button)
   const bubble = document.createElement('div');
-  bubble.id = PREFIX + 'launcher';
+  bubble.id = 'chatbot-launcher';
   bubble.innerHTML = '💬';
-  Object.assign(bubble.style, {
-    position: 'fixed',
-    bottom: '20px',
-    right: '20px',
-    width: '60px',
-    height: '60px',
-    borderRadius: '50%',
-    backgroundColor: '#18181C',
-    color: '#e6c373',
-    fontSize: '26px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    cursor: 'pointer',
-    zIndex: '99999',
-    boxShadow: '0 4px 12px rgba(230,195,115,0.18)',
-    border: '2px solid #e6c373',
-    transition: 'box-shadow 0.2s',
-  });
-  bubble.title = 'Chatbot öffnen';
+  bubble.style.position = 'fixed';
+  bubble.style.bottom = '20px';
+  bubble.style.right = '20px';
+  bubble.style.width = '60px';
+  bubble.style.height = '60px';
+  bubble.style.borderRadius = '50%';
+  bubble.style.backgroundColor = '#0098dd';
+  bubble.style.color = '#fff';
+  bubble.style.fontSize = '26px';
+  bubble.style.display = 'flex';
+  bubble.style.justifyContent = 'center';
+  bubble.style.alignItems = 'center';
+  bubble.style.cursor = 'pointer';
+  bubble.style.zIndex = '99999';
+  bubble.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
   document.body.appendChild(bubble);
 
-  // Chat iframe container
+  // 🧠 Chat iframe container
   const container = document.createElement('div');
-  container.id = PREFIX + 'container';
-  Object.assign(container.style, {
-    position: 'fixed',
-    bottom: '90px',
-    right: '20px',
-    width: '380px',
-    height: '600px',
-    display: 'none',
-    zIndex: '99998',
-    boxShadow: '0 12px 24px rgba(0,0,0,0.25)',
-    borderRadius: '12px',
-    overflow: 'hidden',
-    background: '#fff',
-    maxWidth: '95vw',
-    maxHeight: '85vh',
-  });
+  container.id = 'chatbot-container';
+  container.style.position = 'fixed';
+  container.style.bottom = '90px';
+  container.style.right = '20px';
+  container.style.width = '380px';
+  container.style.height = '600px';
+  container.style.display = 'none';
+  container.style.zIndex = '99998';
+  container.style.boxShadow = '0 12px 24px rgba(0,0,0,0.25)';
+  container.style.borderRadius = '12px';
+  container.style.overflow = 'hidden';
   document.body.appendChild(container);
 
-  // Close button
+  // ❌ Close button
   const closeBtn = document.createElement('button');
   closeBtn.innerHTML = '×';
-  Object.assign(closeBtn.style, {
-    position: 'absolute',
-    top: '6px',
-    right: '10px',
-    fontSize: '22px',
-    fontWeight: 'bold',
-    color: '#999',
-    background: 'transparent',
-    border: 'none',
-    cursor: 'pointer',
-    zIndex: '10',
-    lineHeight: '1',
-  });
-  closeBtn.title = 'Schließen';
+  closeBtn.style.position = 'absolute';
+  closeBtn.style.top = '6px';
+  closeBtn.style.right = '10px';
+  closeBtn.style.fontSize = '22px';
+  closeBtn.style.fontWeight = 'bold';
+  closeBtn.style.color = '#999';
+  closeBtn.style.background = 'transparent';
+  closeBtn.style.border = 'none';
+  closeBtn.style.cursor = 'pointer';
+  closeBtn.style.zIndex = '10';
   container.appendChild(closeBtn);
 
-  // Iframe
+  // 🪟 Iframe
   const iframe = document.createElement('iframe');
-  iframe.src = 'https://elali-git-main-luccas-projects-96a45b76.vercel.app/embed/index.html';
-  Object.assign(iframe.style, {
-    width: '100%',
-    height: '100%',
-    border: 'none',
-    borderRadius: '12px',
-    background: '#fff',
-  });
-  iframe.title = 'Elali Chatbot Widget';
-  iframe.setAttribute('allow', 'clipboard-write; clipboard-read');
+  iframe.src = 'https://chatbot-ui-dam.vercel.app/embed/index.html'; // ✅ Replace with your deployment URL
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.style.border = 'none';
+  iframe.style.borderRadius = '12px';
   container.appendChild(iframe);
 
-  // Toggle Verhalten
+  // 🧩 Toggle Verhalten
   bubble.addEventListener('click', () => {
     container.style.display = 'block';
     bubble.style.display = 'none';
@@ -93,25 +72,4 @@
     container.style.display = 'none';
     bubble.style.display = 'flex';
   });
-
-  // Optional: Bubble Hover Effekt
-  bubble.addEventListener('mouseenter', () => {
-    bubble.style.boxShadow = '0 6px 18px rgba(230,195,115,0.32)';
-  });
-  bubble.addEventListener('mouseleave', () => {
-    bubble.style.boxShadow = '0 4px 12px rgba(230,195,115,0.18)';
-  });
-
-  // Optional: Responsives Verhalten bei zu kleinem Viewport
-  function adjustContainerSize() {
-    if (window.innerWidth < 400) {
-      container.style.width = '95vw';
-      container.style.height = '70vh';
-    } else {
-      container.style.width = '380px';
-      container.style.height = '600px';
-    }
-  }
-  window.addEventListener('resize', adjustContainerSize);
-  adjustContainerSize();
 })();
