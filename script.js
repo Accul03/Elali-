@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
       return res.json();
     })
     .then(function(data) {
-      // Passe "data.reply" ggf. an das tatsächliche Feld deines Webhook-Outputs an!
-      appendMessage(data.reply || 'Keine Antwort vom Server.', 'bot');
+      // HIER: auf data.message prüfen!
+      appendMessage(data.message || 'Keine Antwort vom Server.', 'bot');
     })
     .catch(function() {
       appendMessage('Fehler bei der Verbindung zum Server.', 'bot');
