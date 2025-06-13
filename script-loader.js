@@ -55,7 +55,8 @@
 
   // 🪟 Iframe
   const iframe = document.createElement('iframe');
-  iframe.src = 'https://chatbot-ui-dam.vercel.app/embed/index.html'; // ✅ Replace with your deployment URL
+  iframe.src = 'https://elali-git-main-luccas-projects-96a45b76.vercel.app/embed/index.html';
+ // ✅ Replace with your deployment URL
   iframe.style.width = '100%';
   iframe.style.height = '100%';
   iframe.style.border = 'none';
