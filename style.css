@@ -165,3 +165,14 @@ body {
   background: #ffe8a3;
   color: #ad9100;
 }
+html, body, .chat-container, .chat-body {
+  scrollbar-width: none !important; /* Firefox */
+  overflow: hidden !important;
+}
+.chat-container::-webkit-scrollbar,
+.chat-body::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0 !important;
+  background: transparent !important;
+}
