@@ -5,32 +5,61 @@ body {
   background-color: #161616;
 }
 
-/* 🟡 Chat-Button (Floating Bubble) */
-.chat-button, .chat-toggle {
+/* Floating Chat-Button */
+.chat-toggle {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #E6C373; /* Gold */
-  border-radius: 50%;
   width: 60px;
   height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.30);
-  cursor: pointer;
-  z-index: 1000;
-  transition: background 0.2s;
-}
-.chat-button .chat-icon, .chat-toggle {
+  background: #0098dd;
+  border-radius: 50%;
+  color: white;
   font-size: 28px;
-  color: #18181C;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: background 0.18s;
 }
-.chat-button:hover, .chat-toggle:hover {
-  background-color: #fff2cb;
+.chat-toggle:hover {
+  background: #007bbf;
 }
 
-/* 💬 Chat-Container (embed only) */
+/* Iframe Container */
+.chat-iframe-container {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 380px;
+  height: 600px;
+  display: none;
+  z-index: 9999;
+}
+.chat-iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}
+
+/* Close Button im Widget */
+.chat-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #999;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* ==================== EMBED ==================== */
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -38,10 +67,9 @@ body {
   background: #18181C;
   border-radius: 18px;
   overflow: hidden;
-  border: 1.5px solid #E6C373;
+  border: 2px solid #E6C373;
 }
 
-/* 🧢 Header */
 .chat-header {
   background-color: #18181C;
   color: #E6C373;
@@ -52,16 +80,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #2e2e2e;
+  border-bottom: 1px solid #23232b;
 }
 
-/* 👤 Avatar */
 .chat-agent {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   margin-top: 12px;
 }
 .chat-agent img {
@@ -74,26 +101,26 @@ body {
   background: #222;
 }
 
-/* 👋 Welcome (neuer Text, zentriert, etwas größer) */
+/* Begrüßungstext */
 .chat-welcome {
   text-align: center;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: #E6C373;
   font-weight: 500;
-  margin-bottom: 18px;
-  margin-top: 6px;
+  margin-bottom: 14px;
+  margin-top: 5px;
 }
 
-/* 💬 Nachrichtenverlauf */
+/* Nachrichtenverlauf */
 .chat-messages {
   display: flex;
   flex-direction: column;
   gap: 12px;
   flex: 1;
   overflow-y: auto;
+  padding: 8px 10px 8px 10px;
 }
 
-/* Nachricht */
 .chat-message {
   max-width: 82%;
   padding: 12px 18px;
@@ -106,21 +133,21 @@ body {
 
 .chat-message.bot {
   align-self: flex-start;
-  background-color: #22232a;
-  color: #F7F7F7;
+  background-color: #23232b;
+  color: #fff;
   border-bottom-left-radius: 0;
-  border: 1.2px solid #23232b;
+  border: 1.2px solid #e6c373;
 }
 
 .chat-message.user {
   align-self: flex-end;
-  background: linear-gradient(90deg,#E6C373 88%,#ffe8a3 100%);
+  background: #fff;
   color: #222;
   border-bottom-right-radius: 0;
   border: 1.2px solid #e6c373;
 }
 
-/* ✏️ Eingabe-Feld */
+/* Eingabefeld */
 .chat-input {
   display: flex;
   justify-content: space-between;
@@ -128,7 +155,6 @@ body {
   padding: 14px 14px 12px 14px;
   background: #18181C;
   border-top: 1px solid #23232b;
-  box-shadow: 0 -1px 6px rgba(230,195,115,0.03);
 }
 
 .chat-input input {
@@ -171,16 +197,7 @@ body {
   color: #ad9100;
 }
 
-/* ✨ Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(14px);}
-  to   { opacity: 1; transform: translateY(0);}
-}
-.hidden {
-  display: none !important;
-}
-
-/* Optional: Scrollbar dunkler */
+/* Scrollbar */
 .chat-messages::-webkit-scrollbar {
   width: 7px;
 }
