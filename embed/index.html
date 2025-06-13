@@ -17,24 +17,35 @@
 <body>
 
   <div class="chat-container">
-    <!-- 🧢 Header -->
+    <!-- Header -->
     <div class="chat-header">
-      Herzlich willkommen im Chat
+      Herzlich willkommen im Trading-Chat!
     </div>
 
-    <!-- 📦 Body -->
+    <!-- Body -->
     <div class="chat-body">
-      <!-- 👤 Avatar (austauschbar) -->
+      <!-- Avatar -->
       <div class="chat-agent">
         <img src="https://gbe.elaliholding.com/wp-content/uploads/2024/09/Rami-892x1024.webp" alt="Ihr Ansprechpartner" />
       </div>
 
-      <!-- 👋 Begrüßung -->
+      <!-- Begrüßung -->
       <div class="chat-welcome">
-        Wie kann ich Dir weiterhelfen?
+        Wie kann ich Ihnen weiterhelfen?
       </div>
 
-      <!-- 💬 Nachrichten -->
+      <!-- Nachrichten -->
       <div class="chat-messages" id="chatMessages"></div>
 
-      <!-- ✏️ Ei
+      <!-- Eingabe -->
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Nachricht..." autocomplete="off" />
+        <button id="sendMessage">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS für das UI -->
+  <script src="../script.js"></script>
+</body>
+</html>
