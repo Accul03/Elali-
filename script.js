@@ -31,15 +31,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // --- WEBHOOK-ANBINDUNG ---
-    // Ersetze diese URL durch deinen echten Webhook/Backend-Endpunkt!
-    fetch(https://vietze.app.n8n.cloud/webhook/cc2c09e8-6b0a-4d02-8c7e-c2d15d8014c2/chat, {
+    fetch('https://vietze.app.n8n.cloud/webhook/cc2c09e8-6b0a-4d02-8c7e-c2d15d8014c2/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: msg })
     })
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error('Serverfehler');
+      return res.json();
+    })
     .then(data => {
-      // Antwort anzeigen (Passe "data.reply" an, falls dein Backend anders antwortet)
+      // Passe "data.reply" ggf. an das tatsächliche Feld deines Webhook-Outputs an!
       appendMessage(data.reply || 'Keine Antwort vom Server.', 'bot');
     })
     .catch(() => {
