@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- WEBHOOK-ANBINDUNG ---
     // Ersetze diese URL durch deinen echten Webhook/Backend-Endpunkt!
-    fetch('https://DEIN-WEBHOOK-ENDPUNKT/endpoint', {
+    fetch('https://vietze.app.n8n.cloud/webhook/cc2c09e8-6b0a-4d02-8c7e-c2d15d8014c2/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: msg })
