@@ -12,8 +12,9 @@
   bubble.style.width = '60px';
   bubble.style.height = '60px';
   bubble.style.borderRadius = '50%';
-  bubble.style.backgroundColor = '#0098dd';
-  bubble.style.color = '#fff';
+  bubble.style.backgroundColor = '#18181C'; // Schwarz
+bubble.style.color = '#e6c373'; // Gold
+bubble.style.border = '2px solid #e6c373';
   bubble.style.fontSize = '26px';
   bubble.style.display = 'flex';
   bubble.style.justifyContent = 'center';
