@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function appendMessage(text, sender = 'user') {
     const div = document.createElement('div');
     div.className = 'chat-message ' + sender;
-    div.textContent = text;
+    div.innerHTML = parseMarkdown(text);
     messages.appendChild(div);
     messages.scrollTop = messages.scrollHeight;
   }
