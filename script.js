@@ -30,8 +30,21 @@ document.addEventListener('DOMContentLoaded', function () {
       introHidden = true;
     }
 
-    setTimeout(() => {
-      appendMessage('Dies ist eine automatische Trading-Chatbot-Antwort.', 'bot');
-    }, 700);
+    // --- WEBHOOK-ANBINDUNG ---
+    // Ersetze diese URL durch deinen echten Webhook/Backend-Endpunkt!
+    fetch('https://DEIN-WEBHOOK-ENDPUNKT/endpoint', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg })
+    })
+    .then(res => res.json())
+    .then(data => {
+      // Antwort anzeigen (Passe "data.reply" an, falls dein Backend anders antwortet)
+      appendMessage(data.reply || 'Keine Antwort vom Server.', 'bot');
+    })
+    .catch(() => {
+      appendMessage('Fehler bei der Verbindung zum Server.', 'bot');
+    });
+    // --- ENDE WEBHOOK ---
   }
 });
